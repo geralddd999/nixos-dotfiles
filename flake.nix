@@ -9,19 +9,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen.url = "github:0xc000022070/zen-browser-flake";
-    zen.inputs.nixpkgs.follows = "nixpkgs";
-
+    zen = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+      
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     apple-fonts.inputs.nixpkgs.follows = "nixpkgs";
-
-    #dms = {
-    #  url = "github:AvengeMedia/DankMaterialShell/stable";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
 
     quickshell = {
       url = "git+https://git.outfoxxed.me/quickshell/quickshell";
@@ -34,11 +31,11 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
+      url = "github:noctalia-dev/noctalia/cachix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
+  # Cachix repo for Noctalia
   nixConfig = {
     extra-substituters = [ "https://noctalia.cachix.org" ];
     extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
@@ -71,7 +68,7 @@
       );
     in
     {
-      #system (NixOS) configuration
+      # System (NixOS) configuration
       nixosConfigurations = builtins.listToAttrs (
         map (host: {
           name = host;

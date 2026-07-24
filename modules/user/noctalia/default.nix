@@ -16,13 +16,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      digital
-      graphviz
-      zotero
-      # S2 related stuff
-
-    ];
+    
     #userSettings.matlab.enable = true;
     programs.noctalia = {
       enable = true;

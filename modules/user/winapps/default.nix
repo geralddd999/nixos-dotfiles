@@ -24,9 +24,9 @@ in
     ];
 
     #winapps config file
-    xdg.configFile."winapps/winapps.conf" = {
-      source = ./winapps.conf;
-    };
+    #xdg.configFile."winapps/winapps.conf" = {
+    #  source = ./winapps.conf;
+    #};
 
   };
 }

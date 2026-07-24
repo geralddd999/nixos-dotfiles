@@ -87,6 +87,7 @@
 
   #Enabling non-free packages
   nixpkgs.config.allowUnfree = true;
+
   #Configuring Hardware-Acceleration
   hardware.graphics = {
     enable = true;
@@ -157,10 +158,8 @@
       "input"
       "networkmanager"
       "wayland"
-      "docker"
       "kvm"
     ]; # Enable ‘sudo’ for the user.
-    #warning i made docker 'root' | change to root-less docker but im lazy
     packages = with pkgs; [
       tree
     ];
@@ -169,8 +168,6 @@
 
   #Enable power management
   powerManagement.enable = true;
-
-  programs.firefox.enable = true;
 
   networking.firewall = rec {
     allowedTCPPortRanges = [
@@ -188,11 +185,7 @@
     wget
     gcc
     git
-    neovim
     radeontop
-    # DE dependencies
-    kitty
-    foot
     acpid
     #dunst
     xwayland-satellite
@@ -215,13 +208,10 @@
     pavucontrol
     pipewire
 
-    #gaming
-    wine-staging
-
     #Fonts
     #(nerd-fonts.override { fonts = [ "FiraCode" ]; })
   ];
-
+  # Should steam be in be here?
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;

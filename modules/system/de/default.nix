@@ -72,7 +72,6 @@ in
       #kde-rounded-corners
       #kdePackages.krohnkite
       pkgs.plasma-panel-colorizer
-      pkgs.kdePackages.karousel
       pkgs.mpvpaper
       # Noctalia DE for Niri 
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default

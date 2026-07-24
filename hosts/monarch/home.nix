@@ -13,7 +13,6 @@
   imports = [
     #./dunst.nix
     #./matlab.nix
-    #inputs.dms.homeModules.dankMaterialShell.niri
   ];
   home.username = "geronimo";
   home.homeDirectory = "/home/geronimo";
@@ -45,6 +44,9 @@
     virtualization.winapps.enable = true;
 
     comms.enable = true;
+
+    # Noctalia
+    noctalia.enable = true;
   };
 
   home.packages = with pkgs; [
@@ -54,8 +56,6 @@
     openconnect
     anytype
     man-pages
-    hyprshot
-    hyprpicker
     grim
     lazygit
     ghostty
@@ -64,7 +64,6 @@
     material-symbols
     matugen
     glib
-    gnome-text-editor
 
     powertop
     fastfetch
@@ -72,9 +71,7 @@
     gsettings-desktop-schemas
     fish
     btop
-    nodejs
     python3
-    cargo
     lshw
     gnumake
     ripgrep
@@ -113,9 +110,8 @@
     kdePackages.okular
     kdePackages.gwenview
     kdePackages.systemsettings
-    # Gnome related stuff +File manager:
+    # Gnome related stuff + File manager:
     nautilus
-    cheese
     gnome-music
     easyeffects
     gnome-photos
@@ -133,34 +129,6 @@
     #syntax highlighting
     kdePackages.syntax-highlighting
 
-    #qt5
-    qt5.qtbase
-    qt5.qtdeclarative
-    qt5.qtgraphicaleffects
-    qt5.qtimageformats
-    qt5.qtsvg
-    qt5.qttranslations
-    kdePackages.qt5compat
-    libsForQt5.qt5ct
-    #qt6
-    kdePackages.qt6ct
-    (lib.hiPrio qt6Packages.qtdeclarative)
-    (lib.hiPrio qt6Packages.qttranslations)
-    qt6Packages.qtbase
-    qt6Packages.qtdeclarative
-    qt6Packages.qtwayland
-    qt6Packages.qtsvg
-    qt6Packages.qtimageformats
-    qt6Packages.qtmultimedia
-    qt6Packages.qtpositioning
-    qt6Packages.qtquicktimeline
-    qt6Packages.qtsensors
-    qt6Packages.qttools
-    qt6Packages.qttranslations
-    qt6Packages.qtvirtualkeyboard
-    qt6Packages.qt5compat
-    kdePackages.qtstyleplugin-kvantum
-
     #Other
     grimblast
     freerdp
@@ -173,7 +141,6 @@
     wlogout
     wofi
     playerctl
-    #hyprpanel
     nwg-look
     brightnessctl
 
@@ -209,7 +176,7 @@
     prismlauncher
 
     inputs.apple-fonts.packages.${pkgs.system}.sf-pro
-    nerd-fonts.jetbrains-mono
+    #nerd-fonts.jetbrains-mono
 
     jetbrains.idea
 
@@ -246,6 +213,7 @@
     #style = builtins.readFile ./waybar/style.css;
 
   };
+
   programs.obs-studio = {
     enable = true;
 
@@ -298,7 +266,7 @@
   #  };
   #};
   #making kde filepicker the default
-  xdg.configFile."xdg-desktop-portal/hyprland-portals.conf" = {
+  xdg.configFile."xdg-desktop-portal/niri-portals.conf" = {
     text = ''
       [preferred]
       default = niri;gtk
@@ -334,7 +302,7 @@
   #  style.name = "kvantum";
   #};
 
-  #Appearence config [GNOME]
+  #Appearence config [GNOME] | don't know if this is necessary
   gtk = {
     enable = true;
 

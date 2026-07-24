@@ -14,7 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      discord
+      discord # maybe flatpak ?? this one doesn't have hte noise suppresion
       beeper
     ];
   };
